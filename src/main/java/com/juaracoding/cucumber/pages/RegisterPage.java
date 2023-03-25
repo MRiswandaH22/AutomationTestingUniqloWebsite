@@ -14,6 +14,12 @@ public class RegisterPage {
         PageFactory.initElements(driver,this);
     }
 
+    @FindBy(xpath = "//div[@class='fr-text caution']")
+    WebElement txtPerhatian;
+    @FindBy(xpath = "//span[@aria-label='Masuk']")
+    WebElement btnIconMasuk;
+    @FindBy(xpath = "//button[@class='fr-btn primary w4-f']")
+    WebElement btnKirimKode;
     @FindBy(xpath = "//span[normalize-space()='Buat akun']")
     WebElement txtJudulRegister;
     @FindBy(xpath = "//input[@name='email']")
@@ -37,6 +43,13 @@ public class RegisterPage {
     WebElement txtJudulSendKodeVerifikasi;
 
 
+    public String getCaution(){
+        return txtPerhatian.getText();
+    }
+    public void setBtnKirimKode(){
+        btnKirimKode.click();
+        btnIconMasuk.click();
+    }
     public String getTitleSendCode(){
         return txtJudulSendKodeVerifikasi.getText();
     }

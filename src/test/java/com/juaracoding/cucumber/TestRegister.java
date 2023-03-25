@@ -76,7 +76,11 @@ public class TestRegister {
     @Then("User go to page sendcode")
     public void user_go_to_page_sendcode(){
         Assert.assertEquals(registerPage.getTitleSendCode(),"TINJAU");
+        Assert.assertEquals(registerPage.getCaution(),"Pastikan Anda dapat menerima email dari \"noreply-enews@mail.id.uniqlo.com\" terlebih dahulu.");
         extentTest.log(LogStatus.PASS,"User go to page Dashboard");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window, scroll(0,150)");
+        registerPage.setBtnKirimKode();
         Hooks.delay(Constants.DETIK);
     }
 }
