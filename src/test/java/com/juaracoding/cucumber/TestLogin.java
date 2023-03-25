@@ -6,6 +6,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -32,8 +33,10 @@ public class TestLogin {
     @And("User click button login")
     public void user_click_button_login(){
         loginPage.setCheckBoxLiatPassword();
-        loginPage.setBtnMasuk();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window, scroll(0,50)");
         Hooks.delay(Constants.DETIK);
+        loginPage.setBtnMasuk();
     }
     @Then("User go to page home")
     public void user_go_to_page_home(){
